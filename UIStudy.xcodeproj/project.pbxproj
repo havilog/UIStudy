@@ -15,6 +15,10 @@
 		409AAC5B26933EE5009F1E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409AAC5926933EE5009F1E28 /* LaunchScreen.storyboard */; };
 		409AAC6626933EE5009F1E28 /* UIStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AAC6526933EE5009F1E28 /* UIStudyTests.swift */; };
 		409AAC7126933EE5009F1E28 /* UIStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AAC7026933EE5009F1E28 /* UIStudyUITests.swift */; };
+		40BDB6A82696AD6A00FA3CFF /* CollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; };
+		40BDB6A92696AD6A00FA3CFF /* CollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40BDB6AA2696AD6E00FA3CFF /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; };
+		40BDB6AB2696AD6E00FA3CFF /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,20 @@
 			remoteGlobalIDString = 409AAC4A26933EE4009F1E28;
 			remoteInfo = UIStudy;
 		};
+		40BDB68B2696ACCA00FA3CFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 40BDB67A2696ACC900FA3CFF;
+			remoteInfo = SPMManager;
+		};
+		40BDB6A62696ACF000FA3CFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 40BDB6972696ACEF00FA3CFF;
+			remoteInfo = CollectionView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,7 +73,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				40BDB6AB2696AD6E00FA3CFF /* SPMManager.framework in Embed Frameworks */,
 				401825432693539500F254ED /* ChaiOnboarding.framework in Embed Frameworks */,
+				40BDB6A92696AD6A00FA3CFF /* CollectionView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +96,8 @@
 		409AAC6C26933EE5009F1E28 /* UIStudyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIStudyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		409AAC7026933EE5009F1E28 /* UIStudyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStudyUITests.swift; sourceTree = "<group>"; };
 		409AAC7226933EE5009F1E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SPMManager.xcodeproj; path = SPMManager/SPMManager.xcodeproj; sourceTree = "<group>"; };
+		40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionView.xcodeproj; path = CollectionView/CollectionView.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BDB6AA2696AD6E00FA3CFF /* SPMManager.framework in Frameworks */,
 				401825422693539500F254ED /* ChaiOnboarding.framework in Frameworks */,
+				40BDB6A82696AD6A00FA3CFF /* CollectionView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +175,8 @@
 			children = (
 				409AAC4D26933EE4009F1E28 /* UIStudy */,
 				401825382693537F00F254ED /* ChaiOnboarding.xcodeproj */,
+				40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */,
+				40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */,
 				409AAC6426933EE5009F1E28 /* UIStudyTests */,
 				409AAC6F26933EE5009F1E28 /* UIStudyUITests */,
 				409AAC4C26933EE4009F1E28 /* Products */,
@@ -194,6 +220,22 @@
 				409AAC7226933EE5009F1E28 /* Info.plist */,
 			);
 			path = UIStudyUITests;
+			sourceTree = "<group>";
+		};
+		40BDB6862696ACC900FA3CFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40BDB6A32696ACEF00FA3CFF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40BDB6A72696ACF000FA3CFF /* CollectionView.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +333,14 @@
 					ProductGroup = 401825392693537F00F254ED /* Products */;
 					ProjectRef = 401825382693537F00F254ED /* ChaiOnboarding.xcodeproj */;
 				},
+				{
+					ProductGroup = 40BDB6A32696ACEF00FA3CFF /* Products */;
+					ProjectRef = 40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */;
+				},
+				{
+					ProductGroup = 40BDB6862696ACC900FA3CFF /* Products */;
+					ProjectRef = 40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -314,6 +364,20 @@
 			fileType = wrapper.cfbundle;
 			path = ChaiOnboardingTests.xctest;
 			remoteRef = 4018253F2693538000F254ED /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SPMManager.framework;
+			remoteRef = 40BDB68B2696ACCA00FA3CFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40BDB6A72696ACF000FA3CFF /* CollectionView.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CollectionView.framework;
+			remoteRef = 40BDB6A62696ACF000FA3CFF /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
