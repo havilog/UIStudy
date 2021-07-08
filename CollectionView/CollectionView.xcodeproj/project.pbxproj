@@ -11,6 +11,9 @@
 		40BDB6B52696ADF500FA3CFF /* PinterestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDB6B22696ADF500FA3CFF /* PinterestCell.swift */; };
 		40BDB6B62696ADF500FA3CFF /* PinterestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDB6B32696ADF500FA3CFF /* PinterestVC.swift */; };
 		40BDB6B72696ADF500FA3CFF /* PinterestLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDB6B42696ADF500FA3CFF /* PinterestLayout.swift */; };
+		40BDB6C92696C7F600FA3CFF /* Photos.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40BDB6C62696C7F600FA3CFF /* Photos.plist */; };
+		40BDB6CB2696C80100FA3CFF /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDB6CA2696C80100FA3CFF /* Photo.swift */; };
+		40BDB6CD2696C8A100FA3CFF /* Photos.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40BDB6CC2696C8A100FA3CFF /* Photos.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		40BDB6B22696ADF500FA3CFF /* PinterestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestCell.swift; sourceTree = "<group>"; };
 		40BDB6B32696ADF500FA3CFF /* PinterestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestVC.swift; sourceTree = "<group>"; };
 		40BDB6B42696ADF500FA3CFF /* PinterestLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinterestLayout.swift; sourceTree = "<group>"; };
+		40BDB6C62696C7F600FA3CFF /* Photos.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Photos.plist; sourceTree = "<group>"; };
+		40BDB6CA2696C80100FA3CFF /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		40BDB6CC2696C8A100FA3CFF /* Photos.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Photos.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,13 +58,24 @@
 		40BDB6992696ACEF00FA3CFF /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				40BDB6C32696C7F600FA3CFF /* Assets */,
 				40BDB6B22696ADF500FA3CFF /* PinterestCell.swift */,
 				40BDB6B42696ADF500FA3CFF /* PinterestLayout.swift */,
 				40BDB6B32696ADF500FA3CFF /* PinterestVC.swift */,
+				40BDB6CA2696C80100FA3CFF /* Photo.swift */,
 				40BDB69A2696ACEF00FA3CFF /* CollectionView.h */,
 				40BDB69B2696ACEF00FA3CFF /* Info.plist */,
 			);
 			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		40BDB6C32696C7F600FA3CFF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				40BDB6C62696C7F600FA3CFF /* Photos.plist */,
+				40BDB6CC2696C8A100FA3CFF /* Photos.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +147,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BDB6C92696C7F600FA3CFF /* Photos.plist in Resources */,
+				40BDB6CD2696C8A100FA3CFF /* Photos.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +159,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BDB6CB2696C80100FA3CFF /* Photo.swift in Sources */,
 				40BDB6B72696ADF500FA3CFF /* PinterestLayout.swift in Sources */,
 				40BDB6B52696ADF500FA3CFF /* PinterestCell.swift in Sources */,
 				40BDB6B62696ADF500FA3CFF /* PinterestVC.swift in Sources */,
@@ -201,7 +221,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -259,7 +279,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

@@ -10,12 +10,14 @@
 		40BDB67F2696ACC900FA3CFF /* SPMManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 40BDB67D2696ACC900FA3CFF /* SPMManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40BDB6AE2696AD9400FA3CFF /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDB6AD2696AD9400FA3CFF /* SnapKit */; };
 		40BDB6B12696ADAB00FA3CFF /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 40BDB6B02696ADAB00FA3CFF /* Then */; };
+		40BDB6BA2696B61700FA3CFF /* Cell+reusableID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40BDB6B92696B61700FA3CFF /* Cell+reusableID.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		40BDB67A2696ACC900FA3CFF /* SPMManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SPMManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40BDB67D2696ACC900FA3CFF /* SPMManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPMManager.h; sourceTree = "<group>"; };
 		40BDB67E2696ACC900FA3CFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40BDB6B92696B61700FA3CFF /* Cell+reusableID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cell+reusableID.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,10 +52,19 @@
 		40BDB67C2696ACC900FA3CFF /* SPMManager */ = {
 			isa = PBXGroup;
 			children = (
+				40BDB6B82696B5FB00FA3CFF /* Extension */,
 				40BDB67D2696ACC900FA3CFF /* SPMManager.h */,
 				40BDB67E2696ACC900FA3CFF /* Info.plist */,
 			);
 			path = SPMManager;
+			sourceTree = "<group>";
+		};
+		40BDB6B82696B5FB00FA3CFF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				40BDB6B92696B61700FA3CFF /* Cell+reusableID.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +113,7 @@
 				TargetAttributes = {
 					40BDB6792696ACC900FA3CFF = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -142,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40BDB6BA2696B61700FA3CFF /* Cell+reusableID.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -258,7 +271,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -273,6 +286,7 @@
 		40BDB6832696ACC900FA3CFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 85329TR25G;
@@ -289,6 +303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.havi.SPMManager;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -297,6 +312,7 @@
 		40BDB6842696ACC900FA3CFF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 85329TR25G;
