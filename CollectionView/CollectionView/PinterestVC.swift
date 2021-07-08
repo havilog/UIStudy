@@ -14,11 +14,30 @@ import SnapKit
 
 public final class PinterestVC: UIViewController {
     
+    // MARK: Constant
+    
+    enum Section: Hashable {
+        case all
+    }
+    
+    typealias PinterestDatasource = UICollectionViewDiffableDataSource<Section, Photo>
+    typealias PinterestSnapshot = NSDiffableDataSourceSnapshot<Section, Photo>
+    
     // MARK: Prop
     
     private var photos: [Photo] = Photo.allPhotos()
     
     // MARK: UI Prop
+    
+    private lazy var datasource: PinterestDatasource = PinterestDatasource(collectionView: collectionView) { collectionView, indexPath, photo in
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PinterestCell.reusableID, for: indexPath) as? PinterestCell else {
+            preconditionFailure()
+        }
+        
+        cell.bind(with: photo)
+        
+        return cell
+    }
     
     private lazy var collectionView: UICollectionView = .init(
         frame: .zero,
@@ -27,7 +46,6 @@ public final class PinterestVC: UIViewController {
         if let pinterestLayout = $0.collectionViewLayout as? PinterestLayout {
             pinterestLayout.delegate = self
         }
-        
         $0.register(PinterestCell.self, forCellWithReuseIdentifier: PinterestCell.reusableID)
         $0.contentInset = UIEdgeInsets(top: 23, left: 10, bottom: 10, right: 10)
     }
@@ -54,19 +72,55 @@ public final class PinterestVC: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        applySnapshot()
     }
     
     private func setupUI() {
         view.backgroundColor = .yellow
+        
+        view.addSubview(collectionView)
+        collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    private func applySnapshot() {
+        var snapshot = PinterestSnapshot()
+        snapshot.appendSections([.all])
+        snapshot.appendItems(photos, toSection: .all)
+        datasource.apply(snapshot, animatingDifferences: false)
     }
 }
+
+// 일반 데이터소스로 구현
+//extension PinterestVC: UICollectionViewDataSource {
+//
+//    public func collectionView(
+//        _ collectionView: UICollectionView,
+//        numberOfItemsInSection section: Int
+//    ) -> Int {
+//        return photos.count
+//    }
+//
+//    public func collectionView(
+//        _ collectionView: UICollectionView,
+//        cellForItemAt indexPath: IndexPath
+//    ) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PinterestCell.reusableID, for: indexPath)
+//        if let cell = cell as? PinterestCell {
+//            cell.bind(with: photos[indexPath.item])
+//        }
+//        return cell
+//    }
+//
+//}
 
 extension PinterestVC: PinterestLayoutDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         heightForPhotoAtIndexPath indexPath: IndexPath
     ) -> CGFloat {
-        return 0
+        return photos[indexPath.item].image.size.height
     }
 }
 
