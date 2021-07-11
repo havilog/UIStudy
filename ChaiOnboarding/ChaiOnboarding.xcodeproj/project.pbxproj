@@ -10,6 +10,7 @@
 		401825282693537F00F254ED /* ChaiOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4018251E2693537F00F254ED /* ChaiOnboarding.framework */; };
 		4018252D2693537F00F254ED /* ChaiOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018252C2693537F00F254ED /* ChaiOnboardingTests.swift */; };
 		40182546269353A300F254ED /* ChaiOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182545269353A300F254ED /* ChaiOnboardingVC.swift */; };
+		4067A6792695C5F500F8164A /* ChaiTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		4018252C2693537F00F254ED /* ChaiOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiOnboardingTests.swift; sourceTree = "<group>"; };
 		4018252E2693537F00F254ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40182545269353A300F254ED /* ChaiOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiOnboardingVC.swift; sourceTree = "<group>"; };
+		4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		401825202693537F00F254ED /* ChaiOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */,
 				40182545269353A300F254ED /* ChaiOnboardingVC.swift */,
 				401825222693537F00F254ED /* Info.plist */,
 			);
@@ -113,6 +116,8 @@
 			dependencies = (
 			);
 			name = ChaiOnboarding;
+			packageProductDependencies = (
+			);
 			productName = ChaiOnboarding;
 			productReference = 4018251E2693537F00F254ED /* ChaiOnboarding.framework */;
 			productType = "com.apple.product-type.framework";
@@ -162,6 +167,8 @@
 				Base,
 			);
 			mainGroup = 401825142693537F00F254ED;
+			packageReferences = (
+			);
 			productRefGroup = 4018251F2693537F00F254ED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -195,6 +202,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40182546269353A300F254ED /* ChaiOnboardingVC.swift in Sources */,
+				4067A6792695C5F500F8164A /* ChaiTextFieldView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
