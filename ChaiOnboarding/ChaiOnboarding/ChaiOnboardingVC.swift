@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPMManager
 
 import Then
 import SnapKit
