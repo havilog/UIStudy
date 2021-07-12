@@ -21,6 +21,7 @@ public final class HVBottomSheetVC: UIViewController {
     
     private var cardViewHeightConstraint: NSLayoutConstraint?
     private var currentHeight: CGFloat?
+    private var defaultSafeHeight: CGFloat = 40
     
     // MARK: UI Property
     
@@ -147,39 +148,50 @@ extension HVBottomSheetVC {
         switch state {
         case .normal:
             break
+            
         case .expanded:
-            break
+            let safeLayoutHeight = view.safeAreaLayoutGuide.layoutFrame.height
+            let dragHeight = dragIndicatorView.frame.height
+            let fullHeight = safeLayoutHeight - dragHeight - defaultSafeHeight
+            self.cardViewHeightConstraint?.constant = fullHeight
+            
         case .dismiss:
             hideCardViewAndDismiss()
         }
     }
     
+    private func dimAlphaWithHeightConstraint(value: CGFloat) -> CGFloat {
+        let fullDimAlpha: CGFloat = 0.7
+        
+        let resultAlpha = fullDimAlpha
+        return resultAlpha
+    }
+    
     @objc private func dragIndicatorMoved(_ recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
+        let velocity = recognizer.velocity(in: view)
         
         switch recognizer.state {
+        /// translation의 시작 위치를 기록
         case .began:
             self.currentHeight = self.cardViewHeightConstraint?.constant
             
+        /// cardView의 height constant를 translation에 맞게 변경
         case .changed:
             guard let currentHeight = self.currentHeight else { break }
-            if self.currentHeight ?? 0 + translation.y > 30 {
-                print("true")
-            }
-            self.cardViewHeightConstraint?.constant = currentHeight - translation.y
+            let changedHeight = currentHeight - translation.y
+            let dragHeight = dragIndicatorView.frame.height
+            guard changedHeight < view.frame.height - defaultSafeHeight - dragHeight else { break }
+            self.cardViewHeightConstraint?.constant = changedHeight
             
-        case .ended: break
-//            guard let currentHeight = self.currentHeight,
-//                  let changedHeight = self.cardViewHeightConstraint?.constant
-//            else { break }
-//            let diffHeight = currentHeight - changedHeight // 400 - 100
-//            let quarterHeight = self.view.frame.height
-//            
-//            if diffHeight > quarterHeight {
-//                self.dismiss(animated: false)
-//            } else if diffHeight < -quarterHeight {
-//                self.cardViewHeightConstraint?.constant = self.view.frame.height
-//            }
+        /// 화면의 상단 1/4에 위치하거나, 드래그 속도가 위쪽으로 일정 수치 이상이면 state를 .expanded로 변경
+        /// 화면의 하단 1/4에 위치하거나, 드래그 속도가 아래쪽으로 일정 수치 이상이면 state를 .dismiss로 변경
+        case .ended:
+            if velocity.y > 1500 {
+                self.changeState(at: .dismiss)
+            } else if velocity.y < -1500 {
+                self.changeState(at: .expanded)
+            }
         default:
             break
         }
