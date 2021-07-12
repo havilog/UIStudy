@@ -8,6 +8,7 @@
 import UIKit
 import ChaiOnboarding
 import CollectionView
+import HVBottomSheet
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -17,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
 //        window?.rootViewController = ChaiOnboardingVC()
-        window?.rootViewController = PinterestVC()
+//        window?.rootViewController = PinterestVC()
+        let navi = UINavigationController(rootViewController: TestVC())
+        window?.rootViewController = navi
         window?.makeKeyAndVisible()
     }
 }
