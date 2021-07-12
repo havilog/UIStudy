@@ -7,17 +7,31 @@
 
 import UIKit
 
+enum ChaiOnboardSection {
+    case phone
+    case residentNumber
+    case telecom
+    case name
+    case certification
+}
+
 final class ChaiTextFieldView: UIView {
     
-    enum ChaiOnboardSection {
-        case common
-        case telecom
-        case residentNumber
-        case certification
-    }
-    
+    private let sectionType: ChaiOnboardSection
     private let text: String
-    private var isHighlighted: Bool
+//    var isHighlighted: Bool {
+//        willSet {
+//            if newValue == true {
+//                UIView.animate(withDuration: 1) { 
+//                    self.layer.borderColor = UIColor.black.cgColor
+//                }
+//            } else {
+//                UIView.animate(withDuration: 1) { 
+//                    self.layer.borderColor = UIColor.white.cgColor
+//                }
+//            }
+//        }
+//    }
     
     weak var delegate: ChaiTextFieldDelegate?
     
@@ -32,15 +46,20 @@ final class ChaiTextFieldView: UIView {
         $0.tintColor = .systemRed
         $0.delegate = self
         $0.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+        if self.sectionType == .residentNumber || self.sectionType == .phone {
+            $0.keyboardType = .numberPad
+        }
     }
     
     init(
         frame: CGRect = .zero,
-        text: String,
-        isHighlighted: Bool = false
+        sectionType: ChaiOnboardSection,
+        text: String
+//        isHighlighted: Bool = false
     ) {
+        self.sectionType = sectionType
         self.text = text
-        self.isHighlighted = isHighlighted
+//        self.isHighlighted = isHighlighted
         
         super.init(frame: frame)
         
@@ -52,12 +71,12 @@ final class ChaiTextFieldView: UIView {
     }
     
     private func setupUI() {
-        if isHighlighted {
-            self.layer.cornerRadius = 15
-            self.layer.borderColor = UIColor.black.cgColor
-            self.layer.borderWidth = 2
-            self.clipsToBounds = true
-        }
+        self.backgroundColor = .white
+        
+        self.layer.cornerRadius = 15
+        self.clipsToBounds = true
+        self.layer.borderColor = UIColor.white.cgColor
+//        self.layer.borderWidth = 2
         
         self.addSubview(textLabel)
         textLabel.snp.makeConstraints {
@@ -74,12 +93,12 @@ final class ChaiTextFieldView: UIView {
     }
     
     @objc func textDidChanged(_ sender: UITextField) {
-        delegate?.textChanged(text: sender.text)
+        delegate?.textChanged(sectionType: self.sectionType, text: sender.text)
     }
 }
 
 protocol ChaiTextFieldDelegate: AnyObject {
-    func textChanged(text: String?)
+    func textChanged(sectionType: ChaiOnboardSection, text: String?)
 }
 
 extension ChaiTextFieldView: UITextFieldDelegate {

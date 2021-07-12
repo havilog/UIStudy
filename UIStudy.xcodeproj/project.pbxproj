@@ -17,10 +17,12 @@
 		409AAC5B26933EE5009F1E28 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409AAC5926933EE5009F1E28 /* LaunchScreen.storyboard */; };
 		409AAC6626933EE5009F1E28 /* UIStudyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AAC6526933EE5009F1E28 /* UIStudyTests.swift */; };
 		409AAC7126933EE5009F1E28 /* UIStudyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 409AAC7026933EE5009F1E28 /* UIStudyUITests.swift */; };
-		40BDB6A82696AD6A00FA3CFF /* CollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; };
-		40BDB6A92696AD6A00FA3CFF /* CollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		40BDB6AA2696AD6E00FA3CFF /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; };
-		40BDB6AB2696AD6E00FA3CFF /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40B97F2A269AEC6900A17254 /* ChaiOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4018253E2693538000F254ED /* ChaiOnboarding.framework */; };
+		40B97F2B269AEC6900A17254 /* ChaiOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4018253E2693538000F254ED /* ChaiOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40B97F2D269AEC6B00A17254 /* CollectionView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; };
+		40B97F2E269AEC6B00A17254 /* CollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40B97F2F269AEC6E00A17254 /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; };
+		40B97F30269AEC6E00A17254 /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,7 +78,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		401825442693539500F254ED /* Embed Frameworks */ = {
+		40B97F2C269AEC6900A17254 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -86,6 +88,9 @@
 				401825432693539500F254ED /* ChaiOnboarding.framework in Embed Frameworks */,
 				40BDB6A92696AD6A00FA3CFF /* CollectionView.framework in Embed Frameworks */,
 				40814D982697ED99004F5B8C /* HVBottomSheet.framework in Embed Frameworks */,
+				40B97F30269AEC6E00A17254 /* SPMManager.framework in Embed Frameworks */,
+				40B97F2B269AEC6900A17254 /* ChaiOnboarding.framework in Embed Frameworks */,
+				40B97F2E269AEC6B00A17254 /* CollectionView.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +125,9 @@
 				401825422693539500F254ED /* ChaiOnboarding.framework in Frameworks */,
 				40BDB6A82696AD6A00FA3CFF /* CollectionView.framework in Frameworks */,
 				40814D972697ED99004F5B8C /* HVBottomSheet.framework in Frameworks */,
+				40B97F2F269AEC6E00A17254 /* SPMManager.framework in Frameworks */,
+				40B97F2A269AEC6900A17254 /* ChaiOnboarding.framework in Frameworks */,
+				40B97F2D269AEC6B00A17254 /* CollectionView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,7 +277,7 @@
 				409AAC4726933EE4009F1E28 /* Sources */,
 				409AAC4826933EE4009F1E28 /* Frameworks */,
 				409AAC4926933EE4009F1E28 /* Resources */,
-				401825442693539500F254ED /* Embed Frameworks */,
+				40B97F2C269AEC6900A17254 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

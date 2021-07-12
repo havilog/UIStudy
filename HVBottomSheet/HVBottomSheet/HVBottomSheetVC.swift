@@ -37,7 +37,7 @@ public final class HVBottomSheetVC: UIViewController {
         return view
     }()
     
-    private lazy var dimmerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.changeState(at: .dismiss)))
+    private lazy var dimmerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideCardViewAndDismiss))
     
     private lazy var dimmerView: UIView = {
         let view = UIView()
@@ -143,19 +143,14 @@ public final class HVBottomSheetVC: UIViewController {
 // MARK: Method
 
 extension HVBottomSheetVC {
-    @objc private func changeState(at state: HVBottomSheetVC.SheetViewState = .normal) {
+    private func changeState(at state: HVBottomSheetVC.SheetViewState = .normal) {
         switch state {
         case .normal:
             break
         case .expanded:
             break
         case .dismiss:
-            UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                self.cardViewHeightConstraint?.constant = 0
-                self.view.layoutIfNeeded()
-            } completion: { _ in
-                self.dismiss(animated: false)
-            }
+            hideCardViewAndDismiss()
         }
     }
     
@@ -173,7 +168,7 @@ extension HVBottomSheetVC {
             }
             self.cardViewHeightConstraint?.constant = currentHeight - translation.y
             
-        case .ended:
+        case .ended: break
 //            guard let currentHeight = self.currentHeight,
 //                  let changedHeight = self.cardViewHeightConstraint?.constant
 //            else { break }
@@ -190,7 +185,7 @@ extension HVBottomSheetVC {
         }
     }
     
-    @objc private func dimmerViewTapped() {
+    @objc private func hideCardViewAndDismiss() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
             self.cardViewHeightConstraint?.constant = 0
             self.view.layoutIfNeeded()
