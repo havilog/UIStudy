@@ -17,10 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-//        window?.rootViewController = ChaiOnboardingVC()
+        window?.rootViewController = ChaiOnboardingVC()
 //        window?.rootViewController = PinterestVC()
-        let navi = UINavigationController(rootViewController: TestVC())
-        window?.rootViewController = navi
+//        let navi = UINavigationController(rootViewController: TestVC())
+//        window?.rootViewController = navi
         window?.makeKeyAndVisible()
     }
 }

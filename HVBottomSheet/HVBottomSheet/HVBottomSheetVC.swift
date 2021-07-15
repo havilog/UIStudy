@@ -7,8 +7,7 @@
 
 import UIKit
 
-public final class HVBottomSheetVC: UIViewController {
-    
+open class HVBottomSheetVC: UIViewController {
     // MARK: Contant
     
     private enum SheetViewState {
@@ -73,10 +72,8 @@ public final class HVBottomSheetVC: UIViewController {
         view.addGestureRecognizer(self.dimmerViewTapGesture)
         return view
     }()
-    
-    // TODO: CardView안에 원하는 기능 삽입
-    
-    private let cardView: UIView = {
+        
+    public let cardView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
@@ -97,9 +94,11 @@ public final class HVBottomSheetVC: UIViewController {
         self.hideDragView = hideDragView
         
         super.init(nibName: nil, bundle: nil)
+        
+        modalPresentationStyle = .overFullScreen
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -123,7 +122,8 @@ public final class HVBottomSheetVC: UIViewController {
     
     // MARK: UI
     
-    private func setupUI() {
+    open func setupUI() {
+        
         view.backgroundColor = .clear
         setupDimmerView()
         setupCardView()
@@ -258,7 +258,7 @@ extension HVBottomSheetVC {
         }
     }
     
-    @objc private func hideCardViewAndDismiss() {
+    @objc public func hideCardViewAndDismiss() {
         UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
             self.cardViewHeightConstraint?.constant = 0
             self.view.layoutIfNeeded()

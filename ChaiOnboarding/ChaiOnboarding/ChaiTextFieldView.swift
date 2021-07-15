@@ -19,23 +19,9 @@ final class ChaiTextFieldView: UIView {
     
     private let sectionType: ChaiOnboardSection
     private let text: String
-//    var isHighlighted: Bool {
-//        willSet {
-//            if newValue == true {
-//                UIView.animate(withDuration: 1) { 
-//                    self.layer.borderColor = UIColor.black.cgColor
-//                }
-//            } else {
-//                UIView.animate(withDuration: 1) { 
-//                    self.layer.borderColor = UIColor.white.cgColor
-//                }
-//            }
-//        }
-//    }
     
     weak var delegate: ChaiTextFieldDelegate?
     
-    // let으로 쓰고 싶은데 좋은 방법이 있을라나요?
     private lazy var textLabel: UILabel = .init().then {
         $0.text = "\(self.text)"
         $0.textColor = .systemGray
@@ -46,6 +32,7 @@ final class ChaiTextFieldView: UIView {
         $0.tintColor = .systemRed
         $0.delegate = self
         $0.addTarget(self, action: #selector(textDidChanged), for: .editingChanged)
+//        $0.addTarget(self, action: #selector(textFieldBecomeFirstResponder(_:)), for: .editingDidBegin)
         if self.sectionType == .residentNumber || self.sectionType == .phone {
             $0.keyboardType = .numberPad
         }
@@ -55,11 +42,9 @@ final class ChaiTextFieldView: UIView {
         frame: CGRect = .zero,
         sectionType: ChaiOnboardSection,
         text: String
-//        isHighlighted: Bool = false
     ) {
         self.sectionType = sectionType
         self.text = text
-//        self.isHighlighted = isHighlighted
         
         super.init(frame: frame)
         
@@ -73,21 +58,20 @@ final class ChaiTextFieldView: UIView {
     private func setupUI() {
         self.backgroundColor = .white
         
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 20
         self.clipsToBounds = true
         self.layer.borderColor = UIColor.white.cgColor
-//        self.layer.borderWidth = 2
         
         self.addSubview(textLabel)
         textLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(15)
-            $0.leading.equalToSuperview().offset(10)
+            $0.top.equalToSuperview().offset(20)
+            $0.leading.equalToSuperview().offset(15)
         }
         
         self.addSubview(textfield)
         textfield.snp.makeConstraints {
             $0.top.equalTo(textLabel).offset(5)
-            $0.leading.trailing.equalToSuperview().inset(10)
+            $0.leading.trailing.equalToSuperview().inset(15)
             $0.bottom.equalToSuperview().offset(-5)
         }
     }
@@ -95,12 +79,31 @@ final class ChaiTextFieldView: UIView {
     @objc func textDidChanged(_ sender: UITextField) {
         delegate?.textChanged(sectionType: self.sectionType, text: sender.text)
     }
+    
+    @objc func textFieldBecomeFirstResponder(_ sender: UITextField) {
+        delegate?.textFieldBecomeFirstResponder(sectionType: self.sectionType)
+    }
+    
+    func setTextToTextField(with text: String) {
+        self.textfield.text = text
+    }
 }
 
 protocol ChaiTextFieldDelegate: AnyObject {
     func textChanged(sectionType: ChaiOnboardSection, text: String?)
+    func textFieldBecomeFirstResponder(sectionType: ChaiOnboardSection)
 }
 
 extension ChaiTextFieldView: UITextFieldDelegate {
+    func customBecomeFirstResponder() {
+        textfield.becomeFirstResponder()
+    }
     
+    func customResignFirstResponder() {
+        textfield.resignFirstResponder()
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        delegate?.textFieldBecomeFirstResponder(sectionType: self.sectionType)
+    }
 }

@@ -10,6 +10,7 @@
 		401825282693537F00F254ED /* ChaiOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4018251E2693537F00F254ED /* ChaiOnboarding.framework */; };
 		4018252D2693537F00F254ED /* ChaiOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018252C2693537F00F254ED /* ChaiOnboardingTests.swift */; };
 		40182546269353A300F254ED /* ChaiOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182545269353A300F254ED /* ChaiOnboardingVC.swift */; };
+		403F9076269FCD7E00E73846 /* ChaiTelecomBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F9075269FCD7E00E73846 /* ChaiTelecomBottomSheetVC.swift */; };
 		4067A6792695C5F500F8164A /* ChaiTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */; };
 		40B97F32269B342A00A17254 /* ChaiHighlightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B97F31269B342A00A17254 /* ChaiHighlightView.swift */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,7 @@
 		4018252C2693537F00F254ED /* ChaiOnboardingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiOnboardingTests.swift; sourceTree = "<group>"; };
 		4018252E2693537F00F254ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40182545269353A300F254ED /* ChaiOnboardingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiOnboardingVC.swift; sourceTree = "<group>"; };
+		403F9075269FCD7E00E73846 /* ChaiTelecomBottomSheetVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiTelecomBottomSheetVC.swift; sourceTree = "<group>"; };
 		4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiTextFieldView.swift; sourceTree = "<group>"; };
 		40B97F31269B342A00A17254 /* ChaiHighlightView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChaiHighlightView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 		401825202693537F00F254ED /* ChaiOnboarding */ = {
 			isa = PBXGroup;
 			children = (
+				403F9075269FCD7E00E73846 /* ChaiTelecomBottomSheetVC.swift */,
 				40B97F31269B342A00A17254 /* ChaiHighlightView.swift */,
 				4067A6782695C5F500F8164A /* ChaiTextFieldView.swift */,
 				40182545269353A300F254ED /* ChaiOnboardingVC.swift */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B97F32269B342A00A17254 /* ChaiHighlightView.swift in Sources */,
+				403F9076269FCD7E00E73846 /* ChaiTelecomBottomSheetVC.swift in Sources */,
 				40182546269353A300F254ED /* ChaiOnboardingVC.swift in Sources */,
 				4067A6792695C5F500F8164A /* ChaiTextFieldView.swift in Sources */,
 			);
