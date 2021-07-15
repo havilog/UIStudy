@@ -7,12 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4015463026A0522400A307AC /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462F26A0522400A307AC /* SPMManager.framework */; };
+		4015463126A0522400A307AC /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462F26A0522400A307AC /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40814D872697ED8B004F5B8C /* HVBottomSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 40814D852697ED8B004F5B8C /* HVBottomSheet.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40814D9B2697EDB8004F5B8C /* HVBottomSheetVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40814D9A2697EDB8004F5B8C /* HVBottomSheetVC.swift */; };
 		40814D9D2697F0F9004F5B8C /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40814D9C2697F0F9004F5B8C /* TestVC.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4015463226A0522400A307AC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4015463126A0522400A307AC /* SPMManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4015462F26A0522400A307AC /* SPMManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SPMManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40814D822697ED8B004F5B8C /* HVBottomSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HVBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40814D852697ED8B004F5B8C /* HVBottomSheet.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HVBottomSheet.h; sourceTree = "<group>"; };
 		40814D862697ED8B004F5B8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -25,17 +42,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4015463026A0522400A307AC /* SPMManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4015462E26A0522400A307AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4015462F26A0522400A307AC /* SPMManager.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		40814D782697ED8B004F5B8C = {
 			isa = PBXGroup;
 			children = (
 				40814D842697ED8B004F5B8C /* HVBottomSheet */,
 				40814D832697ED8B004F5B8C /* Products */,
+				4015462E26A0522400A307AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,6 +107,7 @@
 				40814D7E2697ED8B004F5B8C /* Sources */,
 				40814D7F2697ED8B004F5B8C /* Frameworks */,
 				40814D802697ED8B004F5B8C /* Resources */,
+				4015463226A0522400A307AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

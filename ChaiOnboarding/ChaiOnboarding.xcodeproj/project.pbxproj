@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4015462826A0521A00A307AC /* HVBottomSheet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462726A0521A00A307AC /* HVBottomSheet.framework */; };
+		4015462926A0521A00A307AC /* HVBottomSheet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462726A0521A00A307AC /* HVBottomSheet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4015462C26A0521C00A307AC /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462B26A0521C00A307AC /* SPMManager.framework */; };
+		4015462D26A0521C00A307AC /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4015462B26A0521C00A307AC /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		401825282693537F00F254ED /* ChaiOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4018251E2693537F00F254ED /* ChaiOnboarding.framework */; };
 		4018252D2693537F00F254ED /* ChaiOnboardingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4018252C2693537F00F254ED /* ChaiOnboardingTests.swift */; };
 		40182546269353A300F254ED /* ChaiOnboardingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40182545269353A300F254ED /* ChaiOnboardingVC.swift */; };
@@ -25,7 +29,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4015462A26A0521A00A307AC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4015462926A0521A00A307AC /* HVBottomSheet.framework in Embed Frameworks */,
+				4015462D26A0521C00A307AC /* SPMManager.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4015462726A0521A00A307AC /* HVBottomSheet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HVBottomSheet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4015462B26A0521C00A307AC /* SPMManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SPMManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4018251E2693537F00F254ED /* ChaiOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ChaiOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		401825222693537F00F254ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		401825272693537F00F254ED /* ChaiOnboardingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChaiOnboardingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4015462826A0521A00A307AC /* HVBottomSheet.framework in Frameworks */,
+				4015462C26A0521C00A307AC /* SPMManager.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +79,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4015462626A0521A00A307AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4015462B26A0521C00A307AC /* SPMManager.framework */,
+				4015462726A0521A00A307AC /* HVBottomSheet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		401825142693537F00F254ED = {
 			isa = PBXGroup;
 			children = (
 				401825202693537F00F254ED /* ChaiOnboarding */,
 				4018252B2693537F00F254ED /* ChaiOnboardingTests */,
 				4018251F2693537F00F254ED /* Products */,
+				4015462626A0521A00A307AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +149,7 @@
 				4018251A2693537F00F254ED /* Sources */,
 				4018251B2693537F00F254ED /* Frameworks */,
 				4018251C2693537F00F254ED /* Resources */,
+				4015462A26A0521A00A307AC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -84,9 +84,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				40BDB6AB2696AD6E00FA3CFF /* SPMManager.framework in Embed Frameworks */,
 				401825432693539500F254ED /* ChaiOnboarding.framework in Embed Frameworks */,
-				40BDB6A92696AD6A00FA3CFF /* CollectionView.framework in Embed Frameworks */,
 				40814D982697ED99004F5B8C /* HVBottomSheet.framework in Embed Frameworks */,
 				40B97F30269AEC6E00A17254 /* SPMManager.framework in Embed Frameworks */,
 				40B97F2B269AEC6900A17254 /* ChaiOnboarding.framework in Embed Frameworks */,
@@ -121,9 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40BDB6AA2696AD6E00FA3CFF /* SPMManager.framework in Frameworks */,
 				401825422693539500F254ED /* ChaiOnboarding.framework in Frameworks */,
-				40BDB6A82696AD6A00FA3CFF /* CollectionView.framework in Frameworks */,
 				40814D972697ED99004F5B8C /* HVBottomSheet.framework in Frameworks */,
 				40B97F2F269AEC6E00A17254 /* SPMManager.framework in Frameworks */,
 				40B97F2A269AEC6900A17254 /* ChaiOnboarding.framework in Frameworks */,
@@ -204,8 +200,8 @@
 				409AAC4D26933EE4009F1E28 /* UIStudy */,
 				401825382693537F00F254ED /* ChaiOnboarding.xcodeproj */,
 				40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */,
-				40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */,
 				40814D8D2697ED8B004F5B8C /* HVBottomSheet.xcodeproj */,
+				40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */,
 				409AAC6426933EE5009F1E28 /* UIStudyTests */,
 				409AAC6F26933EE5009F1E28 /* UIStudyUITests */,
 				409AAC4C26933EE4009F1E28 /* Products */,

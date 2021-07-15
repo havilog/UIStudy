@@ -27,8 +27,10 @@ public final class ChaiOnboardingVC: UIViewController {
         $0.spacing = 10
     }
     
-    private lazy var highlighView: ChaiHighlightView = .init().then {
+    private lazy var highlighView: UIView = .init().then {
         $0.backgroundColor = .clear
+        
+        $0.isUserInteractionEnabled = false
         
         $0.layer.cornerRadius = 15
         
@@ -179,9 +181,7 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
         guard let text = text else { return }
         switch sectionType {
         case .phone:
-            guard text.count == 11 else {
-                return
-            }
+            guard text.count == 11 else { return }
             
             view.endEditing(true)
             residentTextFieldView.customBecomeFirstResponder()
@@ -190,9 +190,7 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
                 self.titleLabel.text = "주민번호 앞 7자리를\n입력해주세요"
             }
         case .residentNumber:
-            guard text.count == 7 else {
-                return
-            }
+            guard text.count == 7 else { return }
             
             view.endEditing(true)
             self.telecomTextFieldView.customBecomeFirstResponder()
@@ -201,6 +199,7 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
                 self.titleLabel.text = "통신사를\n선택해주세요"
             }
         case .telecom:
+            view.endEditing(true)
             print(text)
         case .name:
             print(text)
@@ -216,34 +215,28 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
                 self.highlighView.snp.remakeConstraints {
                     $0.edges.equalTo(self.phoneTextFieldView)
                 }
-                self.view.layoutIfNeeded()
+//                self.view.layoutIfNeeded()
             }
-            
-            
         case .residentNumber:
             UIView.animate(withDuration: 0.3) {
                 self.highlighView.snp.remakeConstraints {
                     $0.edges.equalTo(self.residentTextFieldView)
                 }
-                self.view.layoutIfNeeded()
+//                self.view.layoutIfNeeded()
             }
         case .telecom:
-                    
             view.endEditing(true)
-            
+//            self.telecomTextFieldView.customBecomeFirstResponder()
             UIView.animate(withDuration: 0.3) {
-                self.highlighView.snp.remakeConstraints {
+                self.highlighView.snp.remakeConstraints { // prepareConstraints
                     $0.edges.equalTo(self.telecomTextFieldView)
                 }
-
-                self.view.layoutIfNeeded()
+//                self.view.layoutIfNeeded()
                 
                 let bottomSheet = ChaiTelecomBottomSheetVC(heightRatio: .half, hideDragView: false)
                 bottomSheet.delegate = self
                 self.present(bottomSheet, animated: true)
             }
-
-
         case .certification:
             break
         case .name:
