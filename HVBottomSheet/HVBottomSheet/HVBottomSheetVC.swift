@@ -11,21 +11,43 @@ public final class HVBottomSheetVC: UIViewController {
     
     // MARK: Contant
     
-    enum SheetViewState {
+    private enum SheetViewState {
         case normal
         case expanded
         case dismiss
     }
     
+    public enum HeightRatio {
+        case topQuarter
+        case half
+        case bottomQuarter
+    }
+    
     // MARK: Property
     
+    private var heightRatio: HeightRatio?
+    private var cardViewHeightConstant: CGFloat?
     private var cardViewHeightConstraint: NSLayoutConstraint?
     private var currentHeight: CGFloat?
-    private var defaultSafeHeight: CGFloat = 40
+    
+    private let defaultSafeHeight: CGFloat = 40
+    private let hideDragView: Bool
     
     // MARK: UI Property
     
-    private lazy var dragGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragIndicatorMoved(_:)))
+    private lazy var dragGesture: UIPanGestureRecognizer = UIPanGestureRecognizer(
+        target: self,
+        action: #selector(dragIndicatorMoved(_:))
+    )
+    
+    private lazy var dragView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.isHidden = hideDragView
+        view.addGestureRecognizer(self.dragGesture)
+        return view
+    }()
     
     private lazy var dragIndicatorView: UIView = {
         let view = UIView()
@@ -34,11 +56,14 @@ public final class HVBottomSheetVC: UIViewController {
         view.layer.cornerRadius = 5
         view.clipsToBounds = true
         view.alpha = 0
-        view.addGestureRecognizer(self.dragGesture)
+        view.isHidden = hideDragView
         return view
     }()
     
-    private lazy var dimmerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideCardViewAndDismiss))
+    private lazy var dimmerViewTapGesture: UITapGestureRecognizer = UITapGestureRecognizer(
+        target: self,
+        action: #selector(self.hideCardViewAndDismiss)
+    )
     
     private lazy var dimmerView: UIView = {
         let view = UIView()
@@ -48,6 +73,8 @@ public final class HVBottomSheetVC: UIViewController {
         view.addGestureRecognizer(self.dimmerViewTapGesture)
         return view
     }()
+    
+    // TODO: CardView안에 원하는 기능 삽입
     
     private let cardView: UIView = {
         let view = UIView()
@@ -60,7 +87,15 @@ public final class HVBottomSheetVC: UIViewController {
     
     // MARK: Init
     
-    public init() {
+    public init(
+        heightRatio: HeightRatio? = nil,
+        cardViewHeightConstant: CGFloat? = nil,
+        hideDragView: Bool = false
+    ) {
+        self.heightRatio = heightRatio
+        self.cardViewHeightConstant = cardViewHeightConstant
+        self.hideDragView = hideDragView
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -92,7 +127,7 @@ public final class HVBottomSheetVC: UIViewController {
         view.backgroundColor = .clear
         setupDimmerView()
         setupCardView()
-        setupDragIndicatorView()
+        setupDragViews()
     }
     
     private func setupDimmerView() {
@@ -105,31 +140,57 @@ public final class HVBottomSheetVC: UIViewController {
         ])
     }
     
-    private func setupDragIndicatorView() {
-        view.addSubview(dragIndicatorView)
-        NSLayoutConstraint.activate([
-            dragIndicatorView.widthAnchor.constraint(equalToConstant: 50),
-            dragIndicatorView.heightAnchor.constraint(equalToConstant: dragIndicatorView.layer.cornerRadius * 2),
-            dragIndicatorView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            dragIndicatorView.bottomAnchor.constraint(equalTo: cardView.topAnchor, constant: -10)
-        ])
-    }
-    
     private func setupCardView() {
+        let defaultHeightConstraint = cardView.heightAnchor.constraint(equalToConstant: 0)
         view.addSubview(cardView)
         
-        cardViewHeightConstraint = cardView.heightAnchor.constraint(equalToConstant: 0)
+        cardViewHeightConstraint = defaultHeightConstraint
         
         NSLayoutConstraint.activate([
             cardView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             cardView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             cardView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            cardViewHeightConstraint ?? cardView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            cardViewHeightConstraint ?? defaultHeightConstraint
+        ])
+    }
+    
+    private func setupDragViews() {
+        view.addSubview(dragView)
+        NSLayoutConstraint.activate([
+            dragView.bottomAnchor.constraint(equalTo: cardView.topAnchor),
+            dragView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            dragView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            dragView.heightAnchor.constraint(equalToConstant: 30)
+        ])
+        
+        dragView.addSubview(dragIndicatorView)
+        NSLayoutConstraint.activate([
+            dragIndicatorView.widthAnchor.constraint(equalToConstant: 50),
+            dragIndicatorView.heightAnchor.constraint(equalToConstant: dragIndicatorView.layer.cornerRadius * 2),
+            dragIndicatorView.centerXAnchor.constraint(equalTo: dragView.centerXAnchor),
+            dragIndicatorView.bottomAnchor.constraint(equalTo: dragView.bottomAnchor, constant: -10),
         ])
     }
     
     private func showBottomSheet() {
-        let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height / 2
+        /// 외부에서 높이를 지정해주지 않았을 경우 기본값은 화면의 1/3
+        var safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height / 3
+        
+        if let heightRatio = self.heightRatio {
+            switch heightRatio {
+            case .topQuarter:
+                safeAreaHeight = view.frame.height / 4 * 3
+            case .half:
+                safeAreaHeight = view.frame.height / 2
+            case .bottomQuarter:
+                safeAreaHeight = view.frame.height / 4
+            }
+        }
+        
+        if let cardViewHeightConstant = self.cardViewHeightConstant {
+            safeAreaHeight = cardViewHeightConstant
+        }
+
         let bottomPadding = view.safeAreaInsets.bottom
         cardViewHeightConstraint?.constant = safeAreaHeight + bottomPadding
         

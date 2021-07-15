@@ -24,7 +24,7 @@ public class TestVC: UIViewController {
     }
     
     @objc func buttonTapped() {
-        let vc = HVBottomSheetVC()
+        let vc = HVBottomSheetVC(cardViewHeightConstant: 200)
         vc.modalPresentationStyle = .overFullScreen
         self.present(vc, animated: true, completion: nil)
     }
