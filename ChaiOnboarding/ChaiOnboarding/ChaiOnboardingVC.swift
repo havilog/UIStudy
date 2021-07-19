@@ -16,6 +16,16 @@ public final class ChaiOnboardingVC: UIViewController {
 
     // MARK: UI Property
     
+    private let confirmButton: UIButton = .init().then {
+        $0.setTitle("확인", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.setBackgroundColor(.systemGray4, for: .disabled)
+        $0.setBackgroundColor(.black, for: .normal)
+        $0.isEnabled = false
+        $0.isHidden = true
+        $0.addTarget(self, action: #selector(pushToCertification), for: .touchUpInside)
+    }
+    
     private let titleLabel: UILabel = .init().then {
         $0.text = "휴대폰 번호를\n입력해주세요"
         $0.font = .systemFont(ofSize: 24, weight: .bold)
@@ -34,42 +44,17 @@ public final class ChaiOnboardingVC: UIViewController {
         
         $0.layer.cornerRadius = 15
         
-        // TODO: 평소에 항상 clipToBounds = true로 잡아주고 썼었는데...
-        // 이게 겹치는 경우가 있을거 같은데 ...?
 //        $0.clipsToBounds = true
         $0.layer.masksToBounds = false
         
         $0.layer.borderColor = UIColor.black.cgColor
         $0.layer.borderWidth = 3
         
-        /*
-        let shadowLayer = CAShapeLayer()
-        shadowLayer.path = UIBezierPath(rect: $0.bounds).cgPath
-        shadowLayer.fillColor = UIColor.darkGray.cgColor
-        shadowLayer.shadowOffset = .zero
-        shadowLayer.opacity = 0.5
-        shadowLayer.cornerRadius = 3
-        $0.layer.insertSublayer(shadowLayer, at: 0)
-         */
-        
         $0.layer.shadowOpacity = 0.5
         $0.layer.shadowRadius = 3
         $0.layer.shadowOffset = .init(width: 1, height: 1)
-//        $0.layer.shadowColor = UIColor.darkGray.cgColor
-        
-        // TODO: shadow를 쓰려면 expensive하다는데..?
-        // path를 쓰라는데 ..?
-        // path를 쓰면 그림자가 안나옴 ..?
-        // path는 어찌 쓰는거지 ㅇㅁㅇ..
-//        $0.layer.shadowPath = UIBezierPath(rect: $0.bounds).cgPath
-        
-//        $0.layer.shouldRasterize = true // cache해서 다시 그리지 않게
-// If you want to go down the rasterization route, you should make sure iOS caches the shadow at the same drawing scale as the main screen, otherwise it will look pixelated:
-//        $0.layer.rasterizationScale = UIScreen.main.scale
     }
     
-    // TODO: let으로 쓰고 싶은데, viewDidLoad에서 configure도 안하고 싶고,,
-    // 좋은 방법이 있을라나요?
     private lazy var phoneTextFieldView: ChaiTextFieldView = .init(
         sectionType: .phone,
         text: "휴대폰번호"
@@ -130,6 +115,8 @@ public final class ChaiOnboardingVC: UIViewController {
 
 extension ChaiOnboardingVC {
     private func setupUI() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
         view.backgroundColor = .systemGray6
         
         view.addSubview(titleLabel)
@@ -168,10 +155,23 @@ extension ChaiOnboardingVC {
         highlighView.snp.makeConstraints {
             $0.edges.equalTo(phoneTextFieldView)
         }
+        
+        view.addSubview(confirmButton)
+        confirmButton.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.leading.equalTo(view.safeAreaLayoutGuide.snp.leading)
+            $0.trailing.equalTo(view.safeAreaLayoutGuide.snp.trailing)
+            $0.height.equalTo(50)
+        }
     }
     
     private func setPhoneNumberFirstResponder() {
         phoneTextFieldView.customBecomeFirstResponder()
+    }
+    
+    @objc private func pushToCertification() {
+        let vc = ChaiCertificationVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -215,23 +215,19 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
                 self.highlighView.snp.remakeConstraints {
                     $0.edges.equalTo(self.phoneTextFieldView)
                 }
-//                self.view.layoutIfNeeded()
             }
         case .residentNumber:
             UIView.animate(withDuration: 0.3) {
                 self.highlighView.snp.remakeConstraints {
                     $0.edges.equalTo(self.residentTextFieldView)
                 }
-//                self.view.layoutIfNeeded()
             }
         case .telecom:
             view.endEditing(true)
-//            self.telecomTextFieldView.customBecomeFirstResponder()
             UIView.animate(withDuration: 0.3) {
                 self.highlighView.snp.remakeConstraints { // prepareConstraints
                     $0.edges.equalTo(self.telecomTextFieldView)
                 }
-//                self.view.layoutIfNeeded()
                 
                 let bottomSheet = ChaiTelecomBottomSheetVC(heightRatio: .half, hideDragView: false)
                 bottomSheet.delegate = self
@@ -249,6 +245,22 @@ extension ChaiOnboardingVC: ChaiTextFieldDelegate {
 extension ChaiOnboardingVC: ChaiTelecomBottomSheetDelegate {
     func telecomSelected(text: String) {
         telecomTextFieldView.setTextToTextField(with: text)
+        confirmButton.isHidden = false
+        confirmButton.isEnabled = true
+    }
+}
+
+extension UIButton {
+    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        UIGraphicsBeginImageContext(CGSize(width: 1.0, height: 1.0))
+        guard let context = UIGraphicsGetCurrentContext() else { return }
+        context.setFillColor(color.cgColor)
+        context.fill(CGRect(x: 0.0, y: 0.0, width: 1.0, height: 1.0))
+        
+        let backgroundImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+         
+        self.setBackgroundImage(backgroundImage, for: state)
     }
 }
 

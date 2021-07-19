@@ -38,6 +38,8 @@ final class ChaiTextFieldView: UIView {
         }
     }
     
+    private let timer: ChaiTimerProgressView = .init(frame: .zero)
+    
     init(
         frame: CGRect = .zero,
         sectionType: ChaiOnboardSection,
@@ -74,6 +76,14 @@ final class ChaiTextFieldView: UIView {
             $0.leading.trailing.equalToSuperview().inset(15)
             $0.bottom.equalToSuperview().offset(-5)
         }
+        
+        if self.sectionType == .certification {
+            self.addSubview(timer)
+            timer.snp.makeConstraints {
+                $0.trailing.top.bottom.equalToSuperview().inset(10)
+                $0.width.equalTo(timer.snp.height)
+            }
+        }
     }
     
     @objc func textDidChanged(_ sender: UITextField) {
@@ -86,6 +96,10 @@ final class ChaiTextFieldView: UIView {
     
     func setTextToTextField(with text: String) {
         self.textfield.text = text
+    }
+    
+    func startTimer(duration: TimeInterval = 10) {
+        self.timer.progressAnimation(duration: duration)
     }
 }
 
