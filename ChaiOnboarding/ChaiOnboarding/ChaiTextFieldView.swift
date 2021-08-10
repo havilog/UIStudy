@@ -40,6 +40,10 @@ final class ChaiTextFieldView: UIView {
     
     private let timer: ChaiTimerProgressView = .init(frame: .zero)
     
+    private let timeLabel: UILabel = .init().then {
+        $0.text = "3:00"
+    }
+    
     init(
         frame: CGRect = .zero,
         sectionType: ChaiOnboardSection,
@@ -83,6 +87,10 @@ final class ChaiTextFieldView: UIView {
                 $0.trailing.top.bottom.equalToSuperview().inset(10)
                 $0.width.equalTo(timer.snp.height)
             }
+            self.addSubview(timeLabel)
+            timeLabel.snp.makeConstraints {
+                $0.center.equalTo(timer)
+            }
         }
     }
     
@@ -98,8 +106,25 @@ final class ChaiTextFieldView: UIView {
         self.textfield.text = text
     }
     
-    func startTimer(duration: TimeInterval = 10) {
+    func startTimer(duration: TimeInterval = 180) {
+        var time = duration
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            time -= 1
+            self.timeLabel.text = self.timeToText(sec: Int(time))
+            if time == 0 { timer.invalidate() }
+        }
         self.timer.progressAnimation(duration: duration)
+    }
+    
+    private func timeToText(sec: Int) -> String {
+        let minute = (sec % 3600) / 60
+        let second = (sec % 3600) % 60
+        
+        if second < 10 {
+            return String(minute) + ":0" + String(second)
+        } else {
+            return String(minute) + ":" + String(second)
+        }
     }
 }
 

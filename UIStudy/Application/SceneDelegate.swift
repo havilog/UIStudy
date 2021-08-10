@@ -9,6 +9,7 @@ import UIKit
 import ChaiOnboarding
 import CollectionView
 import HVBottomSheet
+import TodayHouse
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -17,10 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: windowScene)
-        let navi = UINavigationController(rootViewController: ChaiCertificationVC())
-//        window?.rootViewController = ChaiOnboardingVC()
-//        window?.rootViewController = PinterestVC()
-//        let navi = UINavigationController(rootViewController: TestVC())
+        let navi = UINavigationController(rootViewController: TodayHouseVC())
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
     }
