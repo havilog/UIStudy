@@ -23,6 +23,8 @@
 		40B97F2E269AEC6B00A17254 /* CollectionView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB6A72696ACF000FA3CFF /* CollectionView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		40B97F2F269AEC6E00A17254 /* SPMManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; };
 		40B97F30269AEC6E00A17254 /* SPMManager.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40C68BAE26C2C29300219EA7 /* TodayHouse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40C68BAB26C2C28400219EA7 /* TodayHouse.framework */; };
+		40C68BAF26C2C29300219EA7 /* TodayHouse.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40C68BAB26C2C28400219EA7 /* TodayHouse.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,20 +48,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 40814D822697ED8B004F5B8C;
 			remoteInfo = HVBottomSheet;
-		};
-		4085B9C326AC740E009081DA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4085B9B926AC740D009081DA /* TodayHouse.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4085B99F26AC740C009081DA;
-			remoteInfo = TodayHouse;
-		};
-		4085B9C526AC740E009081DA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 4085B9B926AC740D009081DA /* TodayHouse.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 4085B9A826AC740D009081DA;
-			remoteInfo = TodayHouseTests;
 		};
 		409AAC6226933EE5009F1E28 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -89,6 +77,20 @@
 			remoteGlobalIDString = 40BDB6972696ACEF00FA3CFF;
 			remoteInfo = CollectionView;
 		};
+		40C68BAA26C2C28400219EA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C68BA526C2C28400219EA7 /* TodayHouse.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4085B99F26AC740C009081DA;
+			remoteInfo = TodayHouse;
+		};
+		40C68BAC26C2C28400219EA7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 40C68BA526C2C28400219EA7 /* TodayHouse.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4085B9A826AC740D009081DA;
+			remoteInfo = TodayHouseTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -99,6 +101,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				401825432693539500F254ED /* ChaiOnboarding.framework in Embed Frameworks */,
+				40C68BAF26C2C29300219EA7 /* TodayHouse.framework in Embed Frameworks */,
 				40814D982697ED99004F5B8C /* HVBottomSheet.framework in Embed Frameworks */,
 				40B97F30269AEC6E00A17254 /* SPMManager.framework in Embed Frameworks */,
 				40B97F2B269AEC6900A17254 /* ChaiOnboarding.framework in Embed Frameworks */,
@@ -112,7 +115,6 @@
 /* Begin PBXFileReference section */
 		401825382693537F00F254ED /* ChaiOnboarding.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ChaiOnboarding.xcodeproj; path = ChaiOnboarding/ChaiOnboarding.xcodeproj; sourceTree = "<group>"; };
 		40814D8D2697ED8B004F5B8C /* HVBottomSheet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HVBottomSheet.xcodeproj; path = HVBottomSheet/HVBottomSheet.xcodeproj; sourceTree = "<group>"; };
-		4085B9B926AC740D009081DA /* TodayHouse.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TodayHouse.xcodeproj; path = ../TodayHouse/TodayHouse.xcodeproj; sourceTree = "<group>"; };
 		409AAC4B26933EE4009F1E28 /* UIStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409AAC4E26933EE4009F1E28 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		409AAC5026933EE4009F1E28 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		409AAC7226933EE5009F1E28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SPMManager.xcodeproj; path = SPMManager/SPMManager.xcodeproj; sourceTree = "<group>"; };
 		40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CollectionView.xcodeproj; path = CollectionView/CollectionView.xcodeproj; sourceTree = "<group>"; };
+		40C68BA526C2C28400219EA7 /* TodayHouse.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TodayHouse.xcodeproj; path = TodayHouse/TodayHouse.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				401825422693539500F254ED /* ChaiOnboarding.framework in Frameworks */,
+				40C68BAE26C2C29300219EA7 /* TodayHouse.framework in Frameworks */,
 				40814D972697ED99004F5B8C /* HVBottomSheet.framework in Frameworks */,
 				40B97F2F269AEC6E00A17254 /* SPMManager.framework in Frameworks */,
 				40B97F2A269AEC6900A17254 /* ChaiOnboarding.framework in Frameworks */,
@@ -209,21 +213,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4085B9BA26AC740D009081DA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				4085B9C426AC740E009081DA /* TodayHouse.framework */,
-				4085B9C626AC740E009081DA /* TodayHouseTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		409AAC4226933EE4009F1E28 = {
 			isa = PBXGroup;
 			children = (
 				409AAC4D26933EE4009F1E28 /* UIStudy */,
 				401825382693537F00F254ED /* ChaiOnboarding.xcodeproj */,
-				4085B9B926AC740D009081DA /* TodayHouse.xcodeproj */,
+				40C68BA526C2C28400219EA7 /* TodayHouse.xcodeproj */,
 				40BDB6A22696ACEF00FA3CFF /* CollectionView.xcodeproj */,
 				40814D8D2697ED8B004F5B8C /* HVBottomSheet.xcodeproj */,
 				40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */,
@@ -284,6 +279,15 @@
 			isa = PBXGroup;
 			children = (
 				40BDB6A72696ACF000FA3CFF /* CollectionView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		40C68BA626C2C28400219EA7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				40C68BAB26C2C28400219EA7 /* TodayHouse.framework */,
+				40C68BAD26C2C28400219EA7 /* TodayHouseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -396,8 +400,8 @@
 					ProjectRef = 40BDB6852696ACC900FA3CFF /* SPMManager.xcodeproj */;
 				},
 				{
-					ProductGroup = 4085B9BA26AC740D009081DA /* Products */;
-					ProjectRef = 4085B9B926AC740D009081DA /* TodayHouse.xcodeproj */;
+					ProductGroup = 40C68BA626C2C28400219EA7 /* Products */;
+					ProjectRef = 40C68BA526C2C28400219EA7 /* TodayHouse.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -431,20 +435,6 @@
 			remoteRef = 40814D942697ED8C004F5B8C /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		4085B9C426AC740E009081DA /* TodayHouse.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = TodayHouse.framework;
-			remoteRef = 4085B9C326AC740E009081DA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		4085B9C626AC740E009081DA /* TodayHouseTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = TodayHouseTests.xctest;
-			remoteRef = 4085B9C526AC740E009081DA /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		40BDB68C2696ACCA00FA3CFF /* SPMManager.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -457,6 +447,20 @@
 			fileType = wrapper.framework;
 			path = CollectionView.framework;
 			remoteRef = 40BDB6A62696ACF000FA3CFF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40C68BAB26C2C28400219EA7 /* TodayHouse.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = TodayHouse.framework;
+			remoteRef = 40C68BAA26C2C28400219EA7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		40C68BAD26C2C28400219EA7 /* TodayHouseTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = TodayHouseTests.xctest;
+			remoteRef = 40C68BAC26C2C28400219EA7 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
