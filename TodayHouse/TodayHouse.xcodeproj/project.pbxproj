@@ -15,6 +15,7 @@
 		4085B9B026AC740D009081DA /* TodayHouse.h in Headers */ = {isa = PBXBuildFile; fileRef = 4085B9A226AC740C009081DA /* TodayHouse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4085B9C826AC74C7009081DA /* TodayHouseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4085B9C726AC74C7009081DA /* TodayHouseVC.swift */; };
 		4085B9CB26AEB171009081DA /* THSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4085B9CA26AEB171009081DA /* THSearchTextField.swift */; };
+		40C68BBF26C2C6BA00219EA7 /* HVSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C68BBE26C2C6BA00219EA7 /* HVSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		4085B9AF26AC740D009081DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4085B9C726AC74C7009081DA /* TodayHouseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayHouseVC.swift; sourceTree = "<group>"; };
 		4085B9CA26AEB171009081DA /* THSearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THSearchTextField.swift; sourceTree = "<group>"; };
+		40C68BBE26C2C6BA00219EA7 /* HVSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HVSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				4085B9CA26AEB171009081DA /* THSearchTextField.swift */,
 				4085B9A226AC740C009081DA /* TodayHouse.h */,
 				4085B9A326AC740C009081DA /* Info.plist */,
+				40C68BBE26C2C6BA00219EA7 /* HVSegmentedControl.swift */,
 			);
 			path = TodayHouse;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 			files = (
 				405E057926B2C5F600A59EF7 /* TabViewController.swift in Sources */,
 				4085B9C826AC74C7009081DA /* TodayHouseVC.swift in Sources */,
+				40C68BBF26C2C6BA00219EA7 /* HVSegmentedControl.swift in Sources */,
 				4085B9CB26AEB171009081DA /* THSearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
